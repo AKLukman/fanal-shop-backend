@@ -1,32 +1,27 @@
-# **Health Care Server**
+# **Fana Shop**
 
-Welcome to the **Health Care Server** project! This repository contains the server-side code for our Health Care application. This README file provides guidelines on how to build and contribute to the project as a team. Please make sure to follow these instructions to maintain a consistent and efficient development process.
+Welcome to the **Fanal Shop** Server project! This repository contains the server-side code for our Fanal Shop e-commerce application. This README file provides guidelines on how to build and contribute to the project as a team. Please make sure to follow these instructions to maintain a consistent and efficient development process..
 
 ## **Getting Started**
 
-1. **Clone the Repository:**
+    
+1. **Navigate to the Project Directory:**
     
     ```bash
-    git clone https://github.com/Programming-Hero-Next-Level-Development/health-care-server.git
+    cd fanal-shop-server
     ```
     
-2. **Navigate to the Project Directory:**
+2. Please update the filename from `.env.example` to `.env`
+3. **Install Dependencies:**
     
     ```bash
-    cd health-care-server
+    npm/yarn install
     ```
     
-3. Please update the filename from `.env.example` to `.env`
-4. **Install Dependencies:**
+4. **Start the Server:**
     
     ```bash
-    yarn install
-    ```
-    
-5. **Start the Server:**
-    
-    ```bash
-    yarn dev
+    napm run dev
     ```
     
     The server will be running at **`http://localhost:3000`** .
@@ -74,4 +69,3 @@ Use the GitHub Issues tab to report bugs, suggest features, or discuss enhanceme
 Follow the coding standards and conventions established by the team. Ensure your code is well-documented.
 
 
-#### Postman API Documentation: https://documenter.getpostman.com/view/26694209/2s9YynmjXH
