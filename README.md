@@ -21,7 +21,7 @@ Welcome to the **Fanal Shop** Server project! This repository contains the serve
 4. **Start the Server:**
     
     ```bash
-    napm run dev
+    npm run dev
     ```
     
     The server will be running at **`http://localhost:3000`** .
