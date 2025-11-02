@@ -1,0 +1,202 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema 
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                 String     @id @default(uuid())
+  email              String     @unique
+  password           String
+  role               UserRole
+  needPasswordChange Boolean    @default(true)
+  status             UserStatus @default(ACTIVE)
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+  customer           Customer?
+  admin              Admin?
+
+
+  @@map("users")
+}
+
+model Customer {
+  id               String            @id @unique @default(uuid())
+  email            String            @unique
+  name             String
+  profilePhoto     String?
+  contactNumber    String?
+  address          String?
+  isDeleted        Boolean           @default(false)
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  user             User              @relation(references: [email], fields: [email])
+  reviews           Review[]
+  orders Order[]
+  @@map("customers")
+}
+
+
+model Admin {
+  id            String   @id @unique @default(uuid())
+  email         String   @unique
+  name          String
+  profilePhoto  String?
+  contactNumber String?
+  isDeleted     Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  user User @relation(references: [email], fields: [email])
+
+  @@map("admins")
+}
+
+model Product {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  price       Float
+  offerPrice  Float @default(0.0)
+  isOnOffer   Boolean    @default(false)
+  sizes String[]
+  colors String[]
+  stock       Int
+  status      ProductStatus @default(ACTIVE)
+  images Image[]
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id])
+  deliverFeeInsideDhaka   Float @default(80)
+  deliverFeeOutsideDhaka  Float @default(120)
+  orderItems OrderItem[]
+  reviews Review[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  isFeatured  Boolean  @default(false)
+}
+model Category {
+  id          String    @id @default(uuid())
+  name        String
+  products    Product[]
+  createdAt   DateTime  @default(now())
+}
+
+model Image {
+  id        String   @id @default(uuid())
+  url       String
+  alt       String?
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  
+}
+
+
+model Review {
+  id       String @id @default(uuid())
+  customerId String
+  customer   Customer @relation(fields: [customerId], references: [id])
+  productId String      
+  product   Product @relation(fields: [productId], references: [id])
+  rating    Float
+  comment   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("reviews")
+}
+
+
+model Order {
+  id            String       @id @default(uuid())
+  customerEmail String
+  customerName String
+  deliveryCharge Float 
+  paymentMode   PaymentMode
+  paymentStatus PaymentStatus  @default(UNPAID)
+  customerId        String?     
+  customer          Customer?         @relation(fields: [customerId], references: [id])
+  items         OrderItem[]
+  orderStatus        OrderStatus  @default(PENDING)
+  totalAmount   Float
+  payment       Payment?
+  shippingInfo  Json         
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model OrderItem {
+  id        String   @id @default(uuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id])
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  name String? 
+  image String?
+  color String?
+  sizes String[]
+  quantity  Int
+  price     Float
+}
+
+model Payment {
+  id            String         @id @default(uuid())
+  orderId       String         @unique
+  order         Order          @relation(fields: [orderId], references: [id])
+  amount        Float
+  status        PaymentStatus  @default(UNPAID)
+  transactionId      String?        @unique
+  paymentGatewayData Json?       
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  RETURNED
+}
+enum UserRole {
+  ADMIN
+  CUSTOMER
+  SUPER_ADMIN
+}
+
+enum UserStatus {
+  BLOCKED
+  ACTIVE
+  PENDING
+  DELETED
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum PaymentStatus {
+  UNPAID
+  PAID
+  
+}
+enum ProductStatus {
+  ACTIVE
+  OUT_OF_STOCK
+  DISCONTINUED
+}
+
+enum PaymentMode {
+  COD
+  FULL_PAYMENT
+  DELIVERY_ONLY
+}

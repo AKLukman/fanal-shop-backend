@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Product" ADD COLUMN     "deliverFeeInsideDhaka" DOUBLE PRECISION NOT NULL DEFAULT 80,
+ADD COLUMN     "deliverFeeOutsideDhaka" DOUBLE PRECISION NOT NULL DEFAULT 120;

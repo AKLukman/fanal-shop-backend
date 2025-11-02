@@ -1,0 +1,18 @@
+# Ignore unnecessary directories
+node_modules
+.next/cache
+dist
+build
+coverage
+uploads
+tmp
+.prisma/client
+
+# Git-related files
+.git
+.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
