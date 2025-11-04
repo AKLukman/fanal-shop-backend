@@ -1,71 +1,69 @@
-# **Fana Shop**
+# 🛍️ Fanal Shop Server
 
-Welcome to the **Fanal Shop** Server project! This repository contains the server-side code for our Fanal Shop e-commerce application. This README file provides guidelines on how to build and contribute to the project as a team. Please make sure to follow these instructions to maintain a consistent and efficient development process..
+Welcome to the **Fanal Shop Server** project!  
+This repository contains the **server-side code** for the **Fanal Shop E-Commerce Application**, a modern platform designed to handle products, users, orders, and payments efficiently.
 
-## **Getting Started**
+This README file provides all the information you need to **set up**, **run**, and **contribute** to the project as a team.  
+Please follow the instructions below to maintain a consistent and efficient development process.
 
-    
-1. **Navigate to the Project Directory:**
-    
-    ```bash
-    cd fanal-shop-server
-    ```
-    
-2. Please update the filename from `.env.example` to `.env`
-3. **Install Dependencies:**
-    
-    ```bash
-    npm/yarn install
-    ```
-    
-4. **Start the Server:**
-    
-    ```bash
-    npm run dev
-    ```
-    
-    The server will be running at **`http://localhost:3000`** .
-    
+---
 
-## **Contributing Guidelines**
+## 🚀 Features
 
-To contribute to the project, follow these guidelines:
+### 👥 User Management
+- User registration and login  
+- JWT-based authentication  
+- Role-based access (Admin, Seller, Customer)  
+- Profile management and address book  
 
-1. **Create a Feature Branch:**
-Before starting work on a new feature, create a feature branch:
-    
-    ```bash
-    git checkout -b feature/your-feature-name
-    ```
-    
-2. **Write Code:**
-Implement the feature or fix the bug on your feature branch.
-3. **Commit Changes:**
-Commit your changes with a meaningful commit message:
-    
-    ```bash
-    git commit -m "Add your commit message here"
-    ```
-    
-4. **Push Changes:**
-Push your changes to your feature branch:
-    
-    ```bash
-    git push origin feature/your-feature-name
-    ```
-    
-5. **Create a Pull Request (PR):**
-Create a pull request from your feature branch to the **`development`** branch on GitHub. Ensure the PR title and description are descriptive.
-6. **Code Review:**
-Your code will be reviewed by other team members. Address any feedback and make necessary changes.
+### 🛒 Product Management
+- Add, edit, delete, and view products  
+- Product categorization and filtering  
+- Stock and inventory management  
+- Product search and sorting  
 
-## **Additional Notes**
+### 💳 Orders & Payments
+- Shopping cart and checkout system  
+- Multiple payment options (Stripe, PayPal, COD)  
+- Order tracking and invoice generation  
+- Refunds and order cancellation support  
 
-- **Main Branch:**
-The **`main`** branch is reserved for stable releases. Do not directly push to the main branch.
-- **Issues and Bug Tracking:**
-Use the GitHub Issues tab to report bugs, suggest features, or discuss enhancements.
-- **Coding Standards:**
-Follow the coding standards and conventions established by the team. Ensure your code is well-documented.
+### 📦 Shipping & Delivery
+- Address management  
+- Shipping status updates  
+- Integration-ready for courier APIs  
 
+### ⭐ Reviews & Ratings
+- Customers can rate and review products  
+- Review moderation system  
 
+### 🧾 Admin Dashboard
+- Manage users, products, and orders  
+- Track sales and revenue analytics  
+- Manage coupons and discounts  
+
+### 🔒 Security
+- Encrypted passwords  
+- Secure APIs with validation and sanitization  
+- Protection against XSS, CSRF, and SQL Injection  
+
+---
+
+## 🧰 Tech Stack
+
+- **Backend:** Node.js, Express.js, Prisma
+- **Database:** MongoDB 
+- **Authentication:** JWT (JSON Web Token)  
+- **Payment Integration:** SSL Commerz  
+- **Cloud Storage:** Cloudinary 
+- **Version Control:** Git & GitHub  
+
+---
+
+## ⚙️ Installation & Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/<your-username>/fanal-shop-server.git
+   cd fanal-shop-server
+   npm run dev
