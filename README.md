@@ -52,7 +52,7 @@ Please follow the instructions below to maintain a consistent and efficient deve
 ## 🧰 Tech Stack
 
 - **Backend:** Node.js, Express.js, Prisma
-- **Database:** MongoDB 
+- **Database:** PostgresSQL
 - **Authentication:** JWT (JSON Web Token)  
 - **Payment Integration:** SSL Commerz  
 - **Cloud Storage:** Cloudinary 
