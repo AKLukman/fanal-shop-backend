@@ -3,8 +3,7 @@
 Welcome to the **Fanal Shop Server** project!  
 This repository contains the **server-side code** for the **Fanal Shop E-Commerce Application**, a modern platform designed to handle products, users, orders, and payments efficiently.
 
-This README file provides all the information you need to **set up**, **run**, and **contribute** to the project as a team.  
-Please follow the instructions below to maintain a consistent and efficient development process.
+
 
 ---
 
